@@ -154,8 +154,8 @@
 	    var hmdEuler = new THREE.Euler();
 	    hmdEuler.order = 'YXZ';
 	    return function () {
-	      var pitchObject = this.pitchObject;
-	      var yawObject = this.yawObject;
+	      var pitchObject = this.pitchObject,
+	          yawObject = this.yawObject;
 
 	      var hmdQuaternion = this.calculateHMDQuaternion();
 	      hmdEuler.setFromQuaternion(hmdQuaternion);
@@ -218,7 +218,7 @@
 	    var el = this.el;
 
 	    var deltaPosition = this.calculateDeltaPosition();
-	    var currentPosition = el.getComputedAttribute('position');
+	    var currentPosition = el.getAttribute('position');
 	    el.setAttribute('position', {
 	      x: currentPosition.x + deltaPosition.x,
 	      y: currentPosition.y + deltaPosition.y,
@@ -226,9 +226,9 @@
 	    });
 	  },
 	  calculateDeltaPosition: function calculateDeltaPosition() {
-	    var dolly = this.dolly;
-	    var deltaPosition = this.deltaPosition;
-	    var previousPosition = this.previousPosition;
+	    var dolly = this.dolly,
+	        deltaPosition = this.deltaPosition,
+	        previousPosition = this.previousPosition;
 
 	    deltaPosition.copy(dolly.position);
 	    deltaPosition.sub(previousPosition);
