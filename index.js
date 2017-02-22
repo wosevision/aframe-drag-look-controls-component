@@ -157,7 +157,7 @@ AFRAME.registerComponent('drag-look-controls', {
   updatePosition () {
     const { el } = this
     const deltaPosition = this.calculateDeltaPosition()
-    const currentPosition = el.getComputedAttribute('position')
+    const currentPosition = el.getAttribute('position')
     el.setAttribute('position', {
       x: currentPosition.x + deltaPosition.x,
       y: currentPosition.y + deltaPosition.y,
